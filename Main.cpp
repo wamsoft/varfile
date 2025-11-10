@@ -383,7 +383,7 @@ protected:
 		// ドメイン部を分離
 		const tjs_char *p = name.c_str();
 		const tjs_char *q;
-		if ((q = wcschr(p, '/'))) {
+		if ((q = TJS_strchr(p, '/'))) {
 			ttstr dname = ttstr(p, q-p);
 			if (dname != TJS_W(".")) {
 				TVPThrowExceptionMessage(TJS_W("no such domain:%1"), dname);
@@ -397,7 +397,7 @@ protected:
 		tTJSVariant base(global, global);
 		while (path.length() > 0) {
 			p = path.c_str();
-			q = wcschr(p, '/');
+			q = TJS_strchr(p, '/');
 			if (q == NULL) {
 				// ファイル
 				break;
